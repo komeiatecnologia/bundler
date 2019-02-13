@@ -78,7 +78,7 @@ jobs:
     # 3.x mode
     - rvm: 2.5.3
       stage: test
-      env: RGV=v3.0.1 BUNDLER_SPEC_SUB_VERSION=3.0.0
+      env: RGV=v3.0.2 BUNDLER_SPEC_SUB_VERSION=3.0.0
 
   allow_failures:
     - rvm: ruby-head

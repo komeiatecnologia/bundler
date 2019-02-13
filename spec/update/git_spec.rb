@@ -88,7 +88,9 @@ RSpec.describe "bundle update" do
         gem "foo", "1.0", :git => "#{lib_path("foo_two")}"
       G
 
-      expect(last_command.stderr).to be_empty
+      output = filter_major_deprecation last_command.stderr
+      expect(output).to be_empty
+
       expect(out).to include("Fetching #{lib_path}/foo_two")
       expect(out).to include("Bundle complete!")
     end

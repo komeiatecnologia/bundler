@@ -313,7 +313,9 @@ RSpec.describe "bundle install with explicit source paths" do
     install_gemfile <<-G
       gem 'foo', '1.0', :path => "#{lib_path("foo-1.0")}"
     G
-    expect(last_command.stderr).to be_empty
+
+    output = filter_major_deprecation last_command.stderr
+    expect(output).to be_empty
   end
 
   it "removes the .gem file after installing" do

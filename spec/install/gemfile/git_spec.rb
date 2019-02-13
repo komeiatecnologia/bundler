@@ -204,7 +204,9 @@ RSpec.describe "bundle install with git sources" do
           gem "foo"
         end
       G
-      expect(last_command.stderr).to be_empty
+
+      output = filter_major_deprecation last_command.stderr
+      expect(output).to be_empty
 
       run <<-RUBY
         require 'foo'
@@ -234,7 +236,9 @@ RSpec.describe "bundle install with git sources" do
           gem "foo"
         end
       G
-      expect(last_command.stderr).to be_empty
+
+      output = filter_major_deprecation last_command.stderr
+      expect(output).to be_empty
 
       run! <<-RUBY
         require 'foo'
@@ -270,7 +274,9 @@ RSpec.describe "bundle install with git sources" do
           gem "foo"
         end
       G
-      expect(last_command.stderr).to be_empty
+
+      output = filter_major_deprecation last_command.stderr
+      expect(output).to be_empty
 
       run! <<-RUBY
         require 'foo'

@@ -592,5 +592,9 @@ module Spec
         ::FileUtils
       end
     end
+
+    def filter_major_deprecation(output)
+      output.split("/n").reject {|l| l =~ /DEPRECATED/ }
+    end
   end
 end
